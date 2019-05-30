@@ -1,51 +1,35 @@
 # Human structure-function rs-fMRI
 
-## Reproducing the main analyses
+This repository contains code to reproduce the main analyses of Fallon et al. (2019).
 
 ### Plots of data for the schematic
 
-Produces data for schematic figure:
+Produce data for schematic figure (Figure 1):
 ```matlab
 dataPlotsForSchematic
 ```
 
 ### High-frequency power versus weighted degree (with partial correction):
-Produces Figure 1A:
+Produces Fig. 2A:
 
 ```matlab
 corr_lfp_ns
 ```
 
-### Plot power spectral density curves for selected regions
+### Plot power spectral density curves for selected regions (Figure 2C)
 
 ```matlab
 PSD_plot
 ```
 
-### Inter-individual differences in correlations
+### Inter-individual differences in correlations (Figure 3)
 
 ```matlab
 individual
 ```
 
-### Comparison of selected feature to other choices from _hctsa_
+### Comparison of selected feature to other choices from _hctsa_ (Figure 4)
 
 ```matlab
 hctsa_corr
 ```
-
-## Where to get data
-#### FUNCTIONAL
-`/kg98/john/data/functional/{SUB_ID}-cfg.mat`
-
-#### STRUCTURAL
-`/kg98/john/data/structural/conn_data_100.mat`
-
-#### 4 different connectomes
-`SIFT2_density`, `SIFT2_connectome`, `standard_density`, `standard_connectome`.
-
-#### REGION VOLUME
-`/kg98/john/data/volume/{SUB_ID}.nii.gz`
-
-#### T1
-`/kg98/john/data/t1t2/T1T2_mean_roi_values.mat`

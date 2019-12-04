@@ -2,7 +2,7 @@
 
 % Parameters:
 whichHemispheres = 'left';
-whatParcellation = 'HCP';
+whatParcellation = 'DK'; % 'HCP', 'DK', 'cust200'
 
 % Structural connectivity data:
 [~,adjMat] = group_NS(whichHemispheres,whatParcellation,'SIFT2_connectome','consistency');
@@ -34,7 +34,7 @@ PlotCDataSurface(NS_scaled,whatParcellation,'l','lateral');
 
 f = figure('color','w');
 NS_ord = sum(adjMat(ord,ord),2);
-imagesc(log10(NS))
+imagesc(log10(NS_ord))
 colormap(flipud(BF_getcmap('spectral',10,0)))
 
 %-------------------------------------------------------------------------------

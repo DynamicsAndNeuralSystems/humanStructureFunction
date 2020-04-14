@@ -6,11 +6,9 @@ function amp = getfALFF(subID,whichHemispheres,doRandomize,numBands,bandOfIntere
 if nargin < 2
     whichHemispheres = 'left'; % 'right','both','left
 end
-
 if nargin < 3
     doRandomize = false;
 end
-
 % Take lowest fifth of frequencies:
 if nargin < 4
     numBands = 5;
@@ -18,12 +16,12 @@ end
 if nargin < 5
     bandOfInterest = 1;
 end
+%-------------------------------------------------------------------------------
+
 %% Load in functional data
 timeSeriesData = givemeTS(subID,whichHemispheres);
-
 numRegions = size(timeSeriesData,2);
 %numBands = 5;
-amp = zeros(numRegions,1);
 
 amp = zeros(numRegions,1);
 for i = 1:numRegions

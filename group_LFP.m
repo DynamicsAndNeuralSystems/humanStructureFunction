@@ -1,7 +1,6 @@
 function [meanLFP, LFPmat] = group_LFP(whichHemispheres,whatParcellation,numBands,bandOfInterest)
 % Compute group-average LFP
 %-------------------------------------------------------------------------------
-
 if nargin < 1
     whichHemispheres = 'left';
 end
@@ -25,6 +24,7 @@ numROIs = size(timeSeriesData,2);
 % Compute LFP feature in every ROI of every subject:
 LFPmat = zeros(numROIs,numSubjects);
 for i = 1:numSubjects
+    fprintf(1,'Subject %u/%u\n',i,numSubjects);
     subID = subfile.subs100.subs(i);
     LFPmat(:,i) = getFreqBand(subID,whichHemispheres,whatParcellation,false,numBands,bandOfInterest);
 end

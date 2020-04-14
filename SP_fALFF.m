@@ -46,7 +46,7 @@ end
 %-------------------------------------------------------------------------------
 % Band pass parameters (default window for ALFF):
 lowCutoff = 0.01; % (Hz)
-highCutoff = 0.08;% (Hz)
+highCutoff = 0.08; % (Hz)
 
 %-------------------------------------------------------------------------------
 % Get the frequency index

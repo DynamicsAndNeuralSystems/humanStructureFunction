@@ -1,7 +1,6 @@
 function [meanfALFF, fALFFmat] = group_fALFF(whichHemispheres,numBands,bandOfInterest)
 % Compute group-average fALFF
 %-------------------------------------------------------------------------------
-
 if nargin < 1
     whichHemispheres = 'left';
 end

@@ -29,7 +29,7 @@ for i = 1:numSubjects
             timescaleMatDecay(j,i) = NaN;
             timescaleMatArea(j,i) = NaN;
         else
-            timescaleMatDecay(j,i) = 1/out.fexpabsacf_b;
+            timescaleMatDecay(j,i) = out.decayTimescale;
             timescaleMatArea(j,i) = out.sumacf;
         end
     end

@@ -27,7 +27,8 @@ AX(4,2).XLabel.String = names{2};
 AX(4,3).XLabel.String = names{3};
 AX(4,4).XLabel.String = names{4};
 
-
+%===============================================================================
+% DISPLAY TO SCREEN
 % f = figure('color','w');
 % plot(grpLFP,grpTimescaleDecay)
 for i = 1:4
@@ -36,3 +37,20 @@ for i = 1:4
         fprintf(1,'%s--%s: r = %g, p = %g\n',names{i},names{j},r,p);
     end
 end
+
+
+%===============================================================================
+% What about others…?
+% load('INP_Empirical1000.mat', 'timeSeriesData')
+% for i = 1:1000
+%     out = CO_AutoCorrShape(zscore(timeSeriesData{i}),'posDrown');
+%     if ~isstruct(out) & isnan(out)
+%         timescaleDecay(i) = NaN;
+%         timescaleArea(i) = NaN;
+%     else
+%         timescaleDecay(j,i) = 1/out.fexpabsacf_b;
+%         timescaleArea(j,i) = out.sumacf;
+%     end
+%     % ----------------
+%
+% end

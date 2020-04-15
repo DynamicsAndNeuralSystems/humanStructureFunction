@@ -26,7 +26,8 @@ for i = 1:numSubjects
     for j = 1:numRegions
         out = CO_AutoCorrShape(zscore(timeSeriesData(:,j)),'posDrown');
         if ~isstruct(out) & isnan(out)
-            timescaleMat(j,i) = NaN;
+            timescaleMatDecay(j,i) = NaN;
+            timescaleMatArea(j,i) = NaN;
         else
             timescaleMatDecay(j,i) = 1/out.fexpabsacf_b;
             timescaleMatArea(j,i) = out.sumacf;

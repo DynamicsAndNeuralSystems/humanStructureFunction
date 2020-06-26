@@ -1,27 +1,26 @@
-% Correlating group NS and LFP - gives a scatter of LFP and NS
+function ComputeScatter(params,whatTimeSeriesMeasure)
+% Correlating group NS and LFP - gives a scatter of RLFP and NS
 
 %-------------------------------------------------------------------------------
 % Parameters:
 %-------------------------------------------------------------------------------
-whatTimeSeriesMeasure = 'timescale';
-whatTimeScale = 'decay';
-whichHemispheres = 'left';
-whatParcellation = 'DK';
-edgeType = 'SIFT2_connectome';
-groupMethod = 'consistency';
-numBands = 5;
-bandOfInterest = 1;
+if nargin < 1
+    params = GiveMeDefaultParams();
+end
+if nargin < 2
+    whatTimeSeriesMeasure = 'timescale';
+end
 
 %-------------------------------------------------------------------------------
 % Load data, compute LFP
 %-------------------------------------------------------------------------------
 % Compute group NS:
-grpNS = group_NS(whichHemispheres,whatParcellation,edgeType,groupMethod);
+grpNS = GroupNodeStrength(params.data);
 
 switch whatTimeSeriesMeasure
 case 'RLFP'
     % Compute group LFP:
-    [grpTSstat,TSstatMat] = group_LFP(whichHemispheres,whatParcellation,numBands,bandOfInterest);
+    [grpTSstat,TSstatMat] = GroupRLFP(whichHemispheres,whatParcellation,numBands,bandOfInterest);
 case 'timescale'
     % Compute timescale:
     [timescaleMatDecay,timescaleMatArea] = group_timescale(whichHemispheres,whatParcellation);
@@ -31,6 +30,8 @@ case 'timescale'
         case 'area' % as Watanabe
             grpTSstat = nanmean(timescaleMatArea,2);
     end
+otherwise
+    error('Unknown time series feature, ''%s''',whatTimeSeriesMeasure);
 end
 
 %-------------------------------------------------------------------------------
@@ -103,3 +104,5 @@ plot(grpVOL,grpTSstat,'ok','MarkerFaceColor','k','LineWidth',2);
 xlabel('Group-level volume')
 ylabel('Low Frequency Power')
 title({r_vol;p_vol})
+
+end

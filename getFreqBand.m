@@ -1,38 +1,29 @@
-function bandPower = getFreqBand(subID,whichHemispheres,whatParcellation,doRandomize,numBands,bandOfInterest)
+function bandPower = getFreqBand(subID,params,doRandomize)
 % Computes low frequency power across ROIs for a given subject
 %-------------------------------------------------------------------------------
 
 % Check Inputs:
 if nargin < 2
-    whichHemispheres = 'left'; % 'right','both','left'
+    params = GiveMeDefaultParams();
 end
 if nargin < 3
-    whatParcellation = 'HCP';
-end
-if nargin < 4
     doRandomize = false;
 end
-% Take lowest fifth of frequencies:
-if nargin < 5
-    numBands = 5;
-end
-if nargin < 6
-    bandOfInterest = 1;
-end
 %-------------------------------------------------------------------------------
-
 % Load in BOLD data
-timeSeriesData = givemeTS(subID,whichHemispheres,doRandomize,whatParcellation);
+timeSeriesData = GiveMeTimeSeries(subID,dataParams,doRandomize);
 [timeSeriesLength,numRegions] = size(timeSeriesData);
 
-% Compute sampling frequency
-scanDuration = 864; % (s)
-samplingPeriod = scanDuration/timeSeriesLength; % time / sample
+% Compute sampling frequency (time / sample)
+samplingPeriod = params.data.scanDuration/timeSeriesLength;
 
 %-------------------------------------------------------------------------------
+% Compute band power across brain regions:
+% (details of the band is set in GiveMeDefaultParams)
 bandPower = zeros(numRegions,1);
 for i = 1:numRegions
-    bandPower(i) = giveMePower(timeSeriesData(:,i),samplingPeriod,numBands,bandOfInterest);
+    bandPower(i) = giveMePower(timeSeriesData(:,i),samplingPeriod,...
+                params.rlfp.numBands,params.rlfp.bandOfInterest);
 end
 
 end

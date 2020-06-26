@@ -20,7 +20,7 @@ y = zscore(detrend(y));
 bandIntervals = linspace(0,sampleFreq/2,numBands+1);
 bandFreqRange = bandIntervals(bandOfInterest:bandOfInterest+1);
 powerInBand = bandpower(y,sampleFreq,bandFreqRange);
-% keyboard
+
 % totalPower = bandpower(y,sampleFreq,[0,sampleFreq/2]);
 
 %-------------------------------------------------------------------------------

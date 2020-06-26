@@ -33,6 +33,8 @@ switch hemi
                 vertdata = lh_cust200;
             case {'HCPMMP1','HCP'}
                 vertdata = lh_HCPMMP1;
+            otherwise
+                error('Unknown parcellation: ''%s''',parc);
         end
 
     case 'r'
@@ -45,6 +47,8 @@ switch hemi
                 vertdata = rh_cust200;
             case {'HCPMMP1','HCP'}
                 vertdata = rh_HCPMMP1;
+            otherwise
+                error('Unknown parcellation: ''%s''',parc);
         end
 end
 

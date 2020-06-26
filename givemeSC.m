@@ -1,45 +1,53 @@
-function [SCMat,fileName] = givemeSC(subID,edgeType,whatParcellation)
-
+function [SCMat,fileName] = GiveMeSC(subID,dataParams)
+% Pull a structural connectivity matrix for a given subject from file
+%-------------------------------------------------------------------------------
 if nargin < 2
-   edgeType = 'SIFT2_connectome';
-end
-if nargin < 3
-    whatParcellation = 'DK';
+    params = GiveMeDefaultParams();
+    dataParams = params.data;
 end
 
+%-------------------------------------------------------------------------------
 % Pick the right file:
-switch whatParcellation
-    case 'DK'
-        %APARC***
+switch dataParams.whatParcellation
+    case {'DK','aparc'}
+        % APARC
         fileName = 'aparc_acpc_connectome_data.mat';
     case 'HCP'
-        fileName = 'HCPMMP1_acpc_connectome_data'; %HCP_parc
+        % HCP
+        fileName = 'HCPMMP1_acpc_connectome_data';
     case 'cust200'
-        fileName = 'custom200_acpc_connectome_data.mat'; %Custom_200
+        % Custom_200
+        fileName = 'custom200_acpc_connectome_data.mat';
     otherwise
         error('Unknown parcellation: ''%s''',whatParcellation);
 end
-inFile = load(fileName);
+% inFile = load(fileName);
 
+%-------------------------------------------------------------------------------
 % Pick the right edge measure:
-switch edgeType
+switch dataParams.edgeType
     case 'SIFT2_density'
-        SCMat = inFile.SIFT2_den;
+        load(fileName,'SIFT2_den');
+        SCMat = SIFT2_den;
     case 'SIFT2_connectome'
-        SCMat = inFile.SIFT2;
+        load(fileName,'SIFT2');
+        SCMat = SIFT2;
     case 'standard_connectome'
-        SCMat = inFile.standard;
+        load(fileName,'standard');
+        SCMat = standard;
     case 'standard_density'
-        SCMat = inFile.standard_den;
+        load(fileName,'standard_den');
+        SCMat = standard_den;
     otherwise
         error('Unknown edge type: ''%s''',edgeType);
 end
 
-% Pick the right subject:
+%-------------------------------------------------------------------------------
+% Pick the appropriate subject (otherwise return all):
 if ~isempty(subID)
-    indx = (inFile.subs==subID);
+    load(fileName,'subs');
+    indx = (subs==subID);
     SCMat = SCMat{indx};
 end
-
 
 end

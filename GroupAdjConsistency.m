@@ -1,4 +1,4 @@
-function [groupAdj, groupDist, mconsist] = giveMeGroupAdj_consistency(connectomes, distances, threshold, whichHemispheres)
+function [groupAdj, groupDist, mconsist] = GroupAdjConsistency(connectomes,distances,threshold,whichHemispheres)
 % Makes group connectome using VDH consistency method
 
 if nargin < 3
@@ -7,6 +7,7 @@ end
 if nargin < 4
     whichHemispheres = 'left';
 end
+%-------------------------------------------------------------------------------
 
 % make masks for within and between hemisheres
 % make 3D matrix and calculate mean distances

@@ -1,19 +1,7 @@
 function [timescaleMatDecay, timescaleMatArea] = group_timescale(whichHemispheres,whatParcellation)
 % Compute a group-average timescale measure
 %-------------------------------------------------------------------------------
-if nargin < 1
-    whichHemispheres = 'left';
-end
-if nargin < 2
-    whatParcellation = 'HCP';
-end
-%-------------------------------------------------------------------------------
 
-% Load data:
-subfile = load('subs100.mat');
-numSubjects = length(subfile.subs100.subs);
-timeSeriesData = givemeTS(subfile.subs100.subs(1),whichHemispheres,false,whatParcellation);
-numROIs = size(timeSeriesData,2);
 
 % Compute LFP feature in every ROI of every subject:
 timescaleMatDecay = zeros(numROIs,numSubjects);

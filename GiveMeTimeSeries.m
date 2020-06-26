@@ -1,25 +1,22 @@
-function timeSeriesData = givemeTS(subID,whichHemispheres,doRandomize,whatParcellation)
+function timeSeriesData = GiveMeTimeSeries(subID,dataParams,doRandomize)
 % Load rs-fMRI time series for a given subject
 %-------------------------------------------------------------------------------
 
 if nargin < 2
-    whichHemispheres = 'left';
+    params = GiveMeDefaultParams();
+    dataParams = params.data;
 end
 if nargin < 3
     doRandomize = false;
-end
-if nargin < 4
-    whatParcellation = 'DK';
 end
 
 %-------------------------------------------------------------------------------
 % Load in data from file
 %-------------------------------------------------------------------------------
-
 fileName = fullfile('Data','rsfMRI',num2str(subID),'cfg.mat');
 inFile = load(fileName);
 switch whatParcellation
-    case 'DK'
+    case {'DK','aparc'}
         timeSeriesDataRaw = inFile.cfg.roiTS{1}; % CHANGE THIS 1 = all voxels; 5 = equivolume 49 voxels; 2 = HCP parcellation
     case 'HCP'
         timeSeriesDataRaw = inFile.cfg.roiTS{2};
@@ -28,7 +25,7 @@ switch whatParcellation
 end
 [numTime,numRegions] = size(timeSeriesDataRaw); % time x region
 
-fprintf(1,'sub %u: %u regions, %u time points\n',subID,numRegions,numTime);
+fprintf(1,'Subject %u: %u regions, %u time points\n',subID,numRegions,numTime);
 
 %-------------------------------------------------------------------------------
 % z-score data and filter by hemisphere:

@@ -20,7 +20,7 @@ numSubjects = length(subfile.subs100.subs);
 for i = 1:numSubjects
     subID = subfile.subs100.subs(i);
 
-    NS = getNS(subID,whichHemispheres,edgeType);
+    NS = ComputeNodeStrength(subID,whichHemispheres,edgeType);
     LFP = getFreqBand(subID,whichHemispheres,false,numBands,bandOfInterest);
     VOL = getVOL(subID,whichHemispheres);
 

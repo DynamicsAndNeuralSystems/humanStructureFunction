@@ -9,7 +9,7 @@ end
 
 %-------------------------------------------------------------------------------
 % Load in data:
-connDataWeighted = givemeSC(subID,dataParams);
+connDataWeighted = GiveMeSC(subID,dataParams);
 
 %-------------------------------------------------------------------------------
 % Get ROI conn data

@@ -5,7 +5,7 @@ This repository contains code to reproduce the key figures from Fallon et al.: '
 
 #### Dependencies
 
-Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent functions in _hctsa_ (v1.0.0).
+Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent functions in [_hctsa_](https://github.com/benfulcher/hctsa) ([v1.01](https://github.com/benfulcher/hctsa/releases/tag/v1.01) used for published results).
 
 ## Data
 
@@ -23,12 +23,24 @@ Produce data for schematic figure (Fig. 1):
 dataPlotsForSchematic()
 ```
 
-### High-frequency power versus weighted degree (with partial correction):
+### Relative low-frequency power as a function of node strength (+ partial correction):
 Produces Fig. 2A:
 
 ```matlab
-corr_lfp_ns
+params = GiveMeDefaultParams();
+PlotNSScatter(params,'RLFP')
 ```
+
+This outputs several figures and correlation statistics to commandline:
+
+| Description | Output |
+| ------------- |:-------------:|
+| Node strength scatter (correlation and _p_-value in title) | ![](img/PlotNSScatter_4.png) |
+| Residuals from region-volume variation (correlation and p-value in title) | ![](img/PlotNSScatter_3.png) |
+| Labeling of data points by region ID | ![](img/PlotNSScatter_2.png) |
+| Volume scatter | ![](img/PlotNSScatter_1.png) |
+
+These results can be re-run for `'timescale'` or `'fALFF'` instead of `'RLFP'`.
 
 ### Plot power spectral density curves for selected regions
 Produces Fig. 2C:

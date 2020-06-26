@@ -15,7 +15,7 @@ end
 %-------------------------------------------------------------------------------
 fileName = fullfile('Data','rsfMRI',num2str(subID),'cfg.mat');
 inFile = load(fileName);
-switch whatParcellation
+switch dataParams.whatParcellation
     case {'DK','aparc'}
         timeSeriesDataRaw = inFile.cfg.roiTS{1}; % CHANGE THIS 1 = all voxels; 5 = equivolume 49 voxels; 2 = HCP parcellation
     case 'HCP'
@@ -45,7 +45,7 @@ end
 %-------------------------------------------------------------------------------
 %% Filter hemisphere:
 %-------------------------------------------------------------------------------
-switch whichHemispheres
+switch dataParams.whichHemispheres
     case 'both'
         % Don't filter
     case 'left'

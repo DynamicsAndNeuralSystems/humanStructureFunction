@@ -27,6 +27,13 @@ case 'RLFP'
     % Compute mean (across subjects) in every ROI:
     % meanFeature = mean(featureMat,2);
 
+case 'fALFF'
+    % Compute LFP feature in every ROI of every subject:
+    featureMat1 = zeros(numROIs,numSubjects);
+    for i = 1:numSubjects
+        featureMat1(:,i) = getfALFF(subjectIDs(i),whichHemispheres,false,numBands,bandOfInterest);
+    end
+
 case 'timescale'
     % Time-scale feature from hctsa function (CO_AutoCorrShape)
     timescaleMatDecay = zeros(numROIs,numSubjects);

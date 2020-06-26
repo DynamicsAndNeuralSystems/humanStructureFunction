@@ -11,7 +11,7 @@ if nargin < 3
 end
 %-------------------------------------------------------------------------------
 % Load in BOLD data
-timeSeriesData = GiveMeTimeSeries(subID,dataParams,doRandomize);
+timeSeriesData = GiveMeTimeSeries(subID,params.data,doRandomize);
 [timeSeriesLength,numRegions] = size(timeSeriesData);
 
 % Compute sampling frequency (time / sample)

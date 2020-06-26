@@ -19,7 +19,7 @@ test = ComputeNodeStrength(subIDList(1),dataParams);
 numRegions = length(test);
 
 % Load in connectome data:
-[connectomes,theDataFile] = givemeSC([],dataParams);
+[connectomes,theDataFile] = GiveMeSC([],dataParams);
 
 %-------------------------------------------------------------------------------
 % Group connectome

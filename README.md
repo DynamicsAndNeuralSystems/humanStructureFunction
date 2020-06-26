@@ -31,14 +31,14 @@ dataPlotsForSchematic()
 (Also outputs some surface-space plots used in __Fig. 2D__)
 
 ### Relative low-frequency power as a function of node strength (+ partial correction):
-Produces Fig. 2A:
+Produces __Fig. 2A__:
 
 ```matlab
 params = GiveMeDefaultParams();
 PlotNSScatter(params,'RLFP')
 ```
 
-This outputs several figures and correlation statistics to commandline:
+This outputs several figures and correlation statistics to the command-line:
 
 | Description | Output |
 | ------------- |:-------------:|
@@ -69,16 +69,16 @@ InterIndividual()
 ```
 ![](img/InterIndividual.png)
 
-### Comparison of selected feature to other choices from _hctsa_
-
-Produces Fig. 4:
+### Comparison of selected feature to others from _hctsa_
 
 ```matlab
 hctsaCorr()
 ```
 
 __Fig 4__:
+
 ![](img/hctsaCorr1.png)
 
 Also the raw distribution (without absolute value or taking residuals from volume):
+
 ![](img/hctsaCorr2.png)

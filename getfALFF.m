@@ -19,7 +19,7 @@ end
 %-------------------------------------------------------------------------------
 
 %% Load in functional data
-timeSeriesData = givemeTS(subID,whichHemispheres);
+timeSeriesData = GiveMeTimeSeries(subID,whichHemispheres);
 numRegions = size(timeSeriesData,2);
 %numBands = 5;
 

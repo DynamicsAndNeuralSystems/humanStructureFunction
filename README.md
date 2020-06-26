@@ -9,8 +9,12 @@ Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent funct
 
 ## Data
 
-* `subs100.mat`: information about all subjects analyzed.
-*
+* Subject info: `Data/subs100.mat`.
+  Contains information about all subjects analyzed.
+* Region volume: `Data/volume.mat`.
+  Contains volume info for all ROIs in aparc/DK parcellation.
+* Regional time series: `Data/rsfMRI`.
+  Contains a `cfg.mat` file for all subjects (DK parcellation).
 
 ## Analysis Code
 
@@ -18,10 +22,12 @@ Add paths to all subdirectories by running `startup`.
 
 ### Plots of data for the schematic
 
-Produce data for schematic figure (Fig. 1):
+Produce data for schematic figure (__Fig. 1__):
 ```matlab
 dataPlotsForSchematic()
 ```
+
+(Also outputs some surface-space plots used in __Fig. 2D__)
 
 ### Relative low-frequency power as a function of node strength (+ partial correction):
 Produces Fig. 2A:
@@ -36,24 +42,31 @@ This outputs several figures and correlation statistics to commandline:
 | Description | Output |
 | ------------- |:-------------:|
 | Node strength scatter (correlation and _p_-value in title) | ![](img/PlotNSScatter_4.png) |
-| Residuals from region-volume variation (correlation and p-value in title) | ![](img/PlotNSScatter_3.png) |
+| __Fig. 2A__: Residuals from region-volume variation (correlation and _p_-value in title) | ![](img/PlotNSScatter_3.png) |
 | Labeling of data points by region ID | ![](img/PlotNSScatter_2.png) |
 | Volume scatter | ![](img/PlotNSScatter_1.png) |
 
 These results can be re-run for `'timescale'` or `'fALFF'` instead of `'RLFP'`.
 
+You can also run with different parcellations by modifying the corresponding element of the `params` structure.
+For example, to produce Fig. 2C: `params.data.whatParcellation = 'cust200'`.
+
 ### Plot power spectral density curves for selected regions
-Produces Fig. 2C:
+Produces __Fig. 2B__:
 
 ```matlab
 PSD_plot()
 ```
 
+![](img/PSD_plot.png)
+
 ### Inter-individual differences in correlations
-Produces Fig. 3:
+
+Produces __Fig. 3__:
 ```matlab
-individual
+InterIndividual()
 ```
+![](img/InterIndividual.png)
 
 ### Comparison of selected feature to other choices from _hctsa_
 

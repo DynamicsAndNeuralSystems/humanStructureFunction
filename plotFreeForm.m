@@ -5,7 +5,7 @@ lw = 1;
 
 % Load BOLD data:
 subfile = load('subs100.mat');
-timeSeriesData = givemeTS(subfile.subs100.subs(1),whichHemispheres,false);
+timeSeriesData = GiveMeTimeSeries(subfile.subs100.subs(1),whichHemispheres,false);
 timeSeriesData = zscore(timeSeriesData);
 timeSeriesData = timeSeriesData';
 

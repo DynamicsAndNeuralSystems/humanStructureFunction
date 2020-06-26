@@ -6,7 +6,7 @@ all_ts = zeros(N,1200,34);
 
 for i = 1:N
     subid = subfile.subs100.subs(i);
-    all_ts(i,:,:) = givemeTS(subid);
+    all_ts(i,:,:) = GiveMeTimeSeries(subid);
 end
 
 allreg = zeros(N,1200,34);

@@ -37,7 +37,7 @@ f.Position = [634        1050         366         257];
 %-------------------------------------------------------------------------------
 % BOLD data:
 subfile = load('subs100.mat');
-timeSeriesData = givemeTS(subfile.subs100.subs(1),whichHemispheres,false,whatParcellation);
+timeSeriesData = GiveMeTimeSeries(subfile.subs100.subs(1),whichHemispheres,false,whatParcellation);
 timeSeriesData = zscore(timeSeriesData);
 timeSeriesData = timeSeriesData';
 f = figure('color','w');

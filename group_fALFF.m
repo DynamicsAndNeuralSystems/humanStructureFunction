@@ -15,7 +15,7 @@ end
 % Load data:
 subfile = load('subs100.mat');
 numSubjects = length(subfile.subs100.subs);
-timeSeriesData = givemeTS(subfile.subs100.subs(1),whichHemispheres,false);
+timeSeriesData = GiveMeTimeSeries(subfile.subs100.subs(1),whichHemispheres,false);
 numROIs = size(timeSeriesData,2);
 
 % Compute LFP feature in every ROI of every subject:

@@ -1,3 +1,4 @@
+function hctsaCorr()
 % Gives histogram of rho values between group-level node strength and hctsa
 % features
 

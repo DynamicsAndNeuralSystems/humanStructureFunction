@@ -1,17 +1,17 @@
+function InterIndividual(params)
 % Individual-level correlations
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
 % Parameters:
-whichHemispheres = 'left';
-edgeType = 'SIFT2_connectome';
-numBands = 5;
-bandOfInterest = 1; % LFP
+if nargin < 1
+    params = GiveMeDefaultParams();
+end
 %-------------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------------
 % Load in subject data:
-subfile = load('subs100.mat');
+subfile = load(params.data.subjectInfoFile);
 numSubjects = length(subfile.subs100.subs);
 
 %-------------------------------------------------------------------------------
@@ -20,15 +20,15 @@ numSubjects = length(subfile.subs100.subs);
 for i = 1:numSubjects
     subID = subfile.subs100.subs(i);
 
-    NS = ComputeNodeStrength(subID,whichHemispheres,edgeType);
-    LFP = getFreqBand(subID,whichHemispheres,false,numBands,bandOfInterest);
-    VOL = getVOL(subID,whichHemispheres);
+    NS = ComputeNodeStrength(subID,params.data);
+    RLFP = getFreqBand(subID,params,false);
+    VOL = getVOL(subID,params.data.whichHemispheres);
 
     % corr without controlling for region volume
-    [raw_rp(i,1),raw_rp(i,2)] = corr(LFP,NS,'type','Spearman');
+    [raw_rp(i,1),raw_rp(i,2)] = corr(RLFP,NS,'type','Spearman');
 
     % partial corr controlling for region volume:
-    [corr_rp(i,1),corr_rp(i,2)] = partialcorr(LFP,NS,VOL,'type','Spearman');
+    [corr_rp(i,1),corr_rp(i,2)] = partialcorr(RLFP,NS,VOL,'type','Spearman');
 end
 
 %-------------------------------------------------------------------------------
@@ -57,3 +57,5 @@ f.Position(3:4) = [342,230];
 % ylabel('Number of hctsa features')
 % title('Correlating hctsa features with group-level node strength')
 % line([-.752,-.752],[0,1400],'color','red','LineWidth',4)
+
+end

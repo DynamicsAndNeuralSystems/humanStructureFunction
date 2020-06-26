@@ -7,7 +7,7 @@ N = 100;
 
 for i = 1:N
     subid = subfile.subs100.subs(i);
-    ts = givemeTS(subid);
+    ts = GiveMeTimeSeries(subid);
 
     lowns = ts(:,31);
     mediumns = ts(:,9);

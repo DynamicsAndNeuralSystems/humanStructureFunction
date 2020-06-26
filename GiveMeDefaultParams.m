@@ -5,7 +5,7 @@ params.data.subjectInfoFile = 'subs100.mat';
 params.data.scanDuration = 864; % (s)
 
 params.data.whichHemispheres = 'left';
-params.data.whatParcellation = 'DK';
+params.data.whatParcellation = 'DK'; % 'cust200'
 params.data.edgeType = 'SIFT2_connectome';
 
 % Consistency-based group connectome parameters

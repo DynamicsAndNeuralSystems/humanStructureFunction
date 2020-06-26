@@ -15,11 +15,14 @@ end
 %-------------------------------------------------------------------------------
 fileName = fullfile('Data','rsfMRI',num2str(subID),'cfg.mat');
 inFile = load(fileName);
+% (can check from inFile.cfg.parcFiles')
 switch dataParams.whatParcellation
     case {'DK','aparc'}
         timeSeriesDataRaw = inFile.cfg.roiTS{1}; % CHANGE THIS 1 = all voxels; 5 = equivolume 49 voxels; 2 = HCP parcellation
     case 'HCP'
         timeSeriesDataRaw = inFile.cfg.roiTS{2};
+    case 'cust200'
+        timeSeriesDataRaw = inFile.cfg.roiTS{3};
     otherwise
         error('Unknown parcellation: ''%s''',whatParcellation);
 end

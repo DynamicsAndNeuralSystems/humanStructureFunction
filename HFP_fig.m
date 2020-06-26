@@ -10,7 +10,7 @@ subID = 127630; % 101410;
 tsLength = 300; % 200 % TS length
 
 % Load in time-series data for a given subject
-timeSeriesData = givemeTS(subID);
+timeSeriesData = GiveMeTimeSeries(subID);
 
 % low frequency (region 23)
 f = figure('color','w');
@@ -54,7 +54,7 @@ reg = 5 % which region to plot
 % load in ts data
 %subID = 111312;
 % load in data for one sub
-timeSeriesData = givemeTS(subID);
+timeSeriesData = GiveMeTimeSeries(subID);
 
 % calculate FFT
 Y = timeSeriesData(1:tsLength,reg);

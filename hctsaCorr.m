@@ -1,4 +1,4 @@
-function hctsaCorr()
+function hctsaCorr(doAbs)
 % Gives histogram of rho values between group-level node strength and hctsa
 % features
 
@@ -11,7 +11,7 @@ load('hctsa_stats.mat','rho','part_rho','part_pvals');
 mafdr_pvals = mafdr(part_pvals,'BHFDR','true');
 total_sig_corrs = sum(mafdr_pvals < 0.05);
 sigThreshold_FDR = min(abs(part_rho(mafdr_pvals < 0.05)));
-LFP_rank = sum(abs(part_rho)>0.53714);
+RLFP_rank = sum(abs(part_rho)>0.53714);
 
 %-------------------------------------------------------------------------------
 % Histogram of partial rho values
@@ -43,3 +43,5 @@ ylabel('Number of hctsa features')
 title('Correlating hctsa features with group-level node strength')
 line(-0.752*ones(2,1),ax.YLim,'color','red','LineWidth',2)
 f.Position(3:4) = [342,230];
+
+end

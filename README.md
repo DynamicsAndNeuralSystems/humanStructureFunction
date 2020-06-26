@@ -15,6 +15,7 @@ Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent funct
   Contains volume info for all ROIs in aparc/DK parcellation.
 * Regional time series: `Data/rsfMRI`.
   Contains a `cfg.mat` file for all subjects (DK parcellation).
+* Results of _hctsa_ analysis: `Data/hctsa_stats.mat`.
 
 ## Analysis Code
 
@@ -73,5 +74,11 @@ InterIndividual()
 Produces Fig. 4:
 
 ```matlab
-hctsa_corr
+hctsaCorr()
 ```
+
+__Fig 4__:
+![](img/hctsaCorr1.png)
+
+Also the raw distribution (without absolute value or taking residuals from volume):
+![](img/hctsaCorr2.png)

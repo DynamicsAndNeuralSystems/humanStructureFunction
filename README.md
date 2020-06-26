@@ -50,7 +50,7 @@ This outputs several figures and correlation statistics to the command-line:
 These results can be re-run for `'timescale'` or `'fALFF'` instead of `'RLFP'`.
 
 You can also run with different parcellations by modifying the corresponding element of the `params` structure.
-For example, to produce Fig. 2C: `params.data.whatParcellation = 'cust200'`.
+For example, to produce Fig. 2C: `params.data.whatParcellation = 'cust200'` (requires additional data files for `'cust200'`).
 
 ### Plot power spectral density curves for selected regions
 Produces __Fig. 2B__:

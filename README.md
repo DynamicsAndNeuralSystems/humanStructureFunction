@@ -9,6 +9,8 @@ Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent funct
 
 ## Data
 
+Data are available from [zenodo](https://zenodo.org/deposit/3909008).
+
 * Subject info: `Data/subs100.mat`.
   Contains information about all subjects analyzed.
 * Region volume: `Data/volume.mat`.
@@ -16,6 +18,7 @@ Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent funct
 * Regional time series: `Data/rsfMRI`.
   Contains a `cfg.mat` file for all subjects (DK parcellation).
 * Results of _hctsa_ analysis: `Data/hctsa_stats.mat`.
+* Surface for surface plotting: `fsaverage_surface_data.mat`.
 
 ## Analysis Code
 

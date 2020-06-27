@@ -5,8 +5,18 @@ params.data.subjectInfoFile = 'subs100.mat';
 params.data.scanDuration = 864; % (s)
 
 params.data.whichHemispheres = 'left';
-params.data.whatParcellation = 'DK'; % 'cust200'
+params.data.whatParcellation = 'DK'; % 'cust200', 'HCP'
 params.data.edgeType = 'SIFT2_connectome';
+
+% Compute useful constant, numAreas, from parcellation
+switch dataParams.whatParcellation
+case {'DK','aparc'}
+    params.data.numAreas = 34*2;
+case 'HCP'
+    params.data.numAreas = 180*2;
+case 'cust200'
+    params.data.numAreas = 100*2;
+end
 
 % Consistency-based group connectome parameters
 params.data.groupMethod = 'consistency';

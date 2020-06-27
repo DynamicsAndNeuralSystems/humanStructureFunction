@@ -45,7 +45,7 @@ end
 [r_raw,p_raw] = corr(grpNS,grpTSstat,'type','Spearman');
 
 % Load volume data:
-[~,grpVOL] = group_vol(params.data.whichHemispheres);
+[~,grpVOL] = GroupRegionVolumes(params.data.whichHemispheres);
 
 % Partial Correlation (controlling for region volume):
 [r_corr,p_corr,resids] = partialcorr_with_resids(grpNS,grpTSstat,grpVOL,'type','Spearman','rows','complete');

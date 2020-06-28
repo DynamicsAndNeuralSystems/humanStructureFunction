@@ -53,4 +53,6 @@ case 'timescale'
             end
         end
     end
+    featureMat1 = timescaleMatDecay;
+    featureMat2 = timescaleMatArea;
 end

@@ -1,21 +1,31 @@
-function params = GiveMeDefaultParams()
+function params = GiveMeDefaultParams(whatParcellation)
+
+if nargin < 1
+    whatParcellation = 'DK'; % 'cust200', 'HCP'
+end
 
 % Data
 params.data.subjectInfoFile = 'subs100.mat';
 params.data.scanDuration = 864; % (s)
 
 params.data.whichHemispheres = 'left';
-params.data.whatParcellation = 'DK'; % 'cust200', 'HCP'
+params.data.whatParcellation = whatParcellation;
 params.data.edgeType = 'SIFT2_connectome';
 
 % Compute useful constant, numAreas, from parcellation
-switch dataParams.whatParcellation
+switch params.data.whatParcellation
 case {'DK','aparc'}
-    params.data.numAreas = 34*2;
+    params.data.numAreasTotal = 34*2;
 case 'HCP'
-    params.data.numAreas = 180*2;
+    params.data.numAreasTotal = 180*2;
 case 'cust200'
-    params.data.numAreas = 100*2;
+    params.data.numAreasTotal = 100*2;
+end
+switch params.data.whichHemispheres
+case {'left','right'}
+    params.data.numAreas = params.data.numAreasTotal/2;
+case 'both'
+    params.data.numAreas = params.data.numAreasTotal;
 end
 
 % Consistency-based group connectome parameters

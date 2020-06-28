@@ -45,12 +45,13 @@ end
 [r_raw,p_raw] = corr(grpNS,grpTSstat,'type','Spearman');
 
 % Load volume data:
-[~,grpVOL] = GroupRegionVolumes(params.data.whichHemispheres);
+[~,grpVOL] = GroupRegionVolumes(params);
 
 % Partial Correlation (controlling for region volume):
 [r_corr,p_corr,resids] = partialcorr_with_resids(grpNS,grpTSstat,grpVOL,'type','Spearman','rows','complete');
 grpNS_resid = resids(:,1);
 grpTSstat_resid = resids(:,2);
+dataWasUsed = ~isnan(grpTSstat);
 
 %-------------------------------------------------------------------------------
 %% Plots
@@ -84,10 +85,13 @@ f = figure('color','w');
 scatter(grpNS_resid,grpTSstat_resid);
 doAddLabels = true;
 if doAddLabels
-    a = [1:34]';
+    a = (1:params.data.numAreas)';
+    a = a(dataWasUsed);
     b = num2str(a);
     c = cellstr(b);
-    dx = 0.3; dy = 0.3; % displacement so the text does not overlay the data points
+    % displacement so the text does not overlay the data points
+    dx = 0.3;
+    dy = 0.3;
     text(grpNS_resid+dx,grpTSstat_resid+dy,c);
 end
 xlabel('Node Strength residual')

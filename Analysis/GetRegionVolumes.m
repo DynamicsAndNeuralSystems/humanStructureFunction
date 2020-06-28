@@ -27,17 +27,17 @@ VOL = inFile.img;
 % Compute volumes of each area from loaded nifti file:
 switch dataParams.whichHemispheres
     case 'both'
-        regionIDs = 1:dataParams.numAreas;
+        regionIDs = 1:dataParams.numAreasTotal;
     case 'left'
-        regionIDs = 1:dataParams.numAreas/2;
+        regionIDs = 1:dataParams.numAreas;
     case 'right'
-        regionIDs = dataParams.numAreas/2+1:dataParams.numAreas;
+        regionIDs = dataParams.numAreas+1:dataParams.numAreasTotal;
 end
 
 % Compute:
-volumes = zeros(length(regionIDs),1);
-for j = 1:numAreas
-    volumes(j) = nnz(VOL==j);
+volumes = zeros(dataParams.numAreas,1);
+for j = 1:dataParams.numAreas
+    volumes(j) = nnz(VOL==regionIDs(j));
 end
 
 end

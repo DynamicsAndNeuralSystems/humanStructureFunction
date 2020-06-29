@@ -9,18 +9,20 @@ Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent funct
 
 ## Data
 
-Data are available from [zenodo](https://doi.org/10.5281/zenodo.3909007).
+Data are available from [zenodo](https://doi.org/10.5281/zenodo.3909007) and should be placed in the `Data` directory as follows:
 
 * Subject info: `Data/subs100.mat`.
-  Contains information about all subjects analyzed.
-* Region volume: `Data/volume.mat`.
-  Contains volume info for all ROIs in aparc/DK parcellation.
-* Regional time series: `Data/rsfMRI`.
-  Contains a `cfg.mat` file for all subjects (DK parcellation).
+    Contains information about all subjects analyzed.
+* Structural connectomes: `Data/connectome/`
+    Contains structural connectivity data for the three parcellations investigated here.
+* Regional time series: `Data/rsfMRI/`.
+    Contains a `cfg.mat` file for all subjects.
+* Region volumes: `Data/volume/`.
+    Contains volume info for all ROIs in each of the three parcellations investigated.
 * Results of _hctsa_ analysis: `Data/hctsa_stats.mat`.
-* Surface for surface plotting: `fsaverage_surface_data.mat`.
+* Surface for surface plotting: `Data/fsaverage_surface_data.mat`.
 
-## Analysis Code
+## Analysis code
 
 Add paths to all subdirectories by running `startup`.
 

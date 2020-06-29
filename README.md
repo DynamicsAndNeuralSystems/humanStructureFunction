@@ -9,7 +9,7 @@ Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent funct
 
 ## Data
 
-Data are available from [zenodo](https://zenodo.org/deposit/3909008).
+Data are available from [zenodo](https://doi.org/10.5281/zenodo.3909007).
 
 * Subject info: `Data/subs100.mat`.
   Contains information about all subjects analyzed.

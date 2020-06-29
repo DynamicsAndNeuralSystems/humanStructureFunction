@@ -1,5 +1,7 @@
 # Timescales of spontaneous fMRI fluctuations relate to structural connectivity in the brain
 
+[![DOI](https://zenodo.org/badge/188183937.svg)](https://zenodo.org/badge/latestdoi/188183937)
+
 This repository contains code to reproduce the key figures from Fallon et al.: 'Timescales of spontaneous fMRI fluctuations relate to structural connectivity in the brain'.
 [_bioRxiv_ preprint is here](https://doi.org/10.1101/655050).
 

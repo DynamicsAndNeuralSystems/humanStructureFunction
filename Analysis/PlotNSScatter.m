@@ -48,7 +48,8 @@ end
 [~,grpVOL] = GroupRegionVolumes(params);
 
 % Partial Correlation (controlling for region volume):
-[r_corr,p_corr,resids] = partialcorr_with_resids(grpNS,grpTSstat,grpVOL,'type','Spearman','rows','complete');
+[r_corr,p_corr,resids] = partialcorr_with_resids(grpNS,grpTSstat,grpVOL,...
+                                'type','Spearman','rows','complete');
 grpNS_resid = resids(:,1);
 grpTSstat_resid = resids(:,2);
 dataWasUsed = ~isnan(grpTSstat);
@@ -92,7 +93,7 @@ if doAddLabels
     % displacement so the text does not overlay the data points
     dx = 0.3;
     dy = 0.3;
-    text(grpNS_resid+dx,grpTSstat_resid+dy,c);
+    text(grpNS_resid + dx,grpTSstat_resid + dy,c);
 end
 xlabel('Node Strength residual')
 ylabel(sprintf('%s residual',whatFeature))

@@ -3,26 +3,28 @@
 [![DOI](https://zenodo.org/badge/188183937.svg)](https://zenodo.org/badge/latestdoi/188183937)
 
 This repository contains code to reproduce the key figures from Fallon et al.: 'Timescales of spontaneous fMRI fluctuations relate to structural connectivity in the brain'.
-[_bioRxiv_ preprint is here](https://doi.org/10.1101/655050).
+[Link to open-access paper in _Network Neuroscience_](https://doi.org/10.1162/netn_a_00151).
 
-#### Dependencies
+## Dependencies
 
-Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent functions in [_hctsa_](https://github.com/benfulcher/hctsa) ([v1.01](https://github.com/benfulcher/hctsa/releases/tag/v1.01) used for published results).
+- Some code (for computing timescales) uses `CO_AutoCorrShape` and dependent functions in [_hctsa_](https://github.com/benfulcher/hctsa) ([v1.01](https://github.com/benfulcher/hctsa/releases/tag/v1.01) was used for published results).
+- Some functions, `load_nii`, require having tools for reading NIfTI images (e.g., the NIfTI toolbox) installed and in the Matlab path.
+-
 
 ## Data
 
 Data are available from [zenodo](https://doi.org/10.5281/zenodo.3909007) and should be placed in the `Data` directory as follows:
 
-* Subject info: `Data/subs100.mat`.
+- Subject info: `Data/subs100.mat`.
     Contains information about all subjects analyzed.
-* Structural connectomes: `Data/connectome/`
+- Structural connectomes: `Data/connectome/`
     Contains structural connectivity data for the three parcellations investigated here.
-* Regional time series: `Data/rsfMRI/`.
+- Regional time series: `Data/rsfMRI/`.
     Contains a `cfg.mat` file for all subjects.
-* Region volumes: `Data/volume/`.
+- Region volumes: `Data/volume/`.
     Contains volume info for all ROIs in each of the three parcellations investigated.
-* Results of _hctsa_ analysis: `Data/hctsa_stats.mat`.
-* Surface for surface plotting: `Data/fsaverage_surface_data.mat`.
+- Results of _hctsa_ analysis: `Data/hctsa_stats.mat`.
+- Surface for surface plotting: `Data/fsaverage_surface_data.mat`.
 
 ## Analysis code
 

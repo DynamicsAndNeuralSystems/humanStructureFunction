@@ -22,7 +22,7 @@ for i = 1:numSubjects
 
     NS = ComputeNodeStrength(subID,params.data);
     RLFP = getFreqBand(subID,params,false);
-    VOL = getVOL(subID,params.data.whichHemispheres);
+    VOL = GetRegionVolumes(subID,params.data);
 
     % corr without controlling for region volume
     [raw_rp(i,1),raw_rp(i,2)] = corr(RLFP,NS,'type','Spearman');
@@ -36,7 +36,6 @@ end
 %-------------------------------------------------------------------------------
 %% Histogram of individual-specific partial correlations:
 f = figure('color','w');
-ax = gca();
 h = histogram(corr_rp(:,1),'numBins',15);
 h.EdgeColor = 'k';
 h.FaceColor = 'w';

@@ -18,10 +18,10 @@ surfaceParcellation = 'aparc';
 adjMatBin = adjMat;
 adjMatBin(adjMatBin > 0) = 1;
 
-allEdges = adjMat(triu(true(size(adjMatBin))));
-connectomeDensity = mean(adjMatBin(triu(true(size(adjMatBin)))));
-minEdgeWeight = min(allEdges(allEdges>0));
-maxEdgeWeight = max(allEdges(allEdges>0));
+% allEdges = adjMat(triu(true(size(adjMatBin))));
+% connectomeDensity = mean(adjMatBin(triu(true(size(adjMatBin)))));
+% minEdgeWeight = min(allEdges(allEdges>0));
+% maxEdgeWeight = max(allEdges(allEdges>0));
 
 % Get reordering for fun:
 ord = BF_ClusterReorder(adjMatBin,'euclidean','average');

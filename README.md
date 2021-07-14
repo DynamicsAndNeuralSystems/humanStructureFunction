@@ -2,8 +2,9 @@
 
 [![DOI](https://zenodo.org/badge/188183937.svg)](https://zenodo.org/badge/latestdoi/188183937)
 
-This repository contains code to reproduce the key figures from Fallon et al.: 'Timescales of spontaneous fMRI fluctuations relate to structural connectivity in the brain'.
-[Link to open-access paper in _Network Neuroscience_](https://doi.org/10.1162/netn_a_00151).
+This repository contains code to reproduce the key figures from our publication:
+
+- &#x1F4D9; Fallon et al. (2020), _Network Neuroscience_. [Timescales of spontaneous fMRI fluctuations relate to structural connectivity in the brain](https://doi.org/10.1162/netn_a_00151).
 
 ## Dependencies
 
@@ -13,7 +14,7 @@ This repository contains code to reproduce the key figures from Fallon et al.: '
 
 ## Data
 
-Data are available from [zenodo](https://doi.org/10.5281/zenodo.3909007) and should be placed in the `Data` directory as follows:
+Data are available from [this Zenodo repository](https://doi.org/10.5281/zenodo.3909007) and should be placed in the `Data` directory as follows:
 
 - Subject info: `Data/subs100.mat`.
     Contains information about all subjects analyzed.

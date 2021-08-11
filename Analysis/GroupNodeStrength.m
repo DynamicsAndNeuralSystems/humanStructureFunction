@@ -32,8 +32,10 @@ switch dataParams.groupMethod % mean, consistency (default), variance
         end
         grpNS = mean(NSmat,2);
     case 'consistency' % VDH method
-        load(theDataFile,'SIFT2_length');
-        distances = SIFT2_length;
+        % Load length:
+        % load(theDataFile,'SIFT2_length'); % old data
+        load(theDataFile,'standard_length');
+        distances = standard_length;
         adjMatGroup = GroupAdjConsistency(connectomes,distances,...
                         dataParams.threshold,dataParams.whichHemispheres);
         grpNS = sum(adjMatGroup)';
